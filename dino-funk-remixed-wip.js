@@ -23,11 +23,17 @@ let pattern2 = note("<[g3,b3,e4]!2 [a3,c3,e4] [b3,d3,f#4]>")
     .release(0.125).decay("<0.1 0.25 0.3 0.4>").sustain(0)
     .cutoff(2000).cutoff("<1000 2000 4000>").fast(4)
     ._scope();
+
+let pattern3 = stack (
+    sound(drum).bank(machine),
+    s('bass').loopAt(6)
+)
+
 cat(
   sound(drum).bank(machine),
   pattern1,
   sound(drum).bank(machine),
-  pattern2,
+  pattern3,
   sound(drum).bank(machine),
-  pattern1,
+  //pattern3
 )
